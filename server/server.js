@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
+const userApp = require("./API/userAPI")
+const authorApp = require("./API/authorAPI")
 require('dotenv').config(); // process.env
 
 const port = process.env.PORT || 4000;
@@ -12,3 +14,5 @@ mongoose.connect(process.env.MONGODB_URL)
 
 
 // connect API routes 
+app.use('/user-api', userApp);
+app.use('/author-api', authorApp);
