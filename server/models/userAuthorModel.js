@@ -14,9 +14,10 @@ const userAuthorSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    email: {
+    email: {   
         type: String,
-        required: true
+        required: true,
+        unique: true              
     },
     imgUrl: {
         type: String,

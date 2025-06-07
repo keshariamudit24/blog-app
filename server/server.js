@@ -5,6 +5,7 @@ const authorApp = require("./API/authorAPI")
 require('dotenv').config(); // process.env
 
 const app = express();
+//body parser middleware
 app.use(express.json());
 
 const port = process.env.PORT || 4000;
