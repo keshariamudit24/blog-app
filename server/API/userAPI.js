@@ -1,13 +1,9 @@
 const express = require("express")
-const userAuthor = require("../models/userAuthorModel")
 const userApp = express.Router();
+const expressAsyncHandler = require("express-async-handler");
+const createUserOrAuthor = require("./createUserOrAuthor")
 
-userApp.get('/user', (req, res) => {
-    let userList = userAuthor.find();
-    res.send({
-        msg: "users",
-        payload: userList
-    })
-})
+// create new user      
+userApp.post("/user", expressAsyncHandler(createUserOrAuthor))
 
 module.exports = userApp;

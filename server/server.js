@@ -1,9 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const app = express();
 const userApp = require("./API/userAPI")
 const authorApp = require("./API/authorAPI")
 require('dotenv').config(); // process.env
+
+const app = express();
+app.use(express.json());
 
 const port = process.env.PORT || 4000;
 

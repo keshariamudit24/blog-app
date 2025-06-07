@@ -1,10 +1,10 @@
 const express = require("express")
 const authorApp = express.Router();
+const expressAsyncHandler = require("express-async-handler");
+const createUserOrAuthor = require("./createUserOrAuthor")
 
-authorApp.get('/', (req, res) => {
-    res.json({
-        msg: "from admin API"
-    });
-})
+// create new author 
+authorApp.post("/author", expressAsyncHandler(createUserOrAuthor))
+
 
 module.exports = authorApp;

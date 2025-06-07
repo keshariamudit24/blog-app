@@ -28,7 +28,7 @@ const userAuthorSchema = new mongoose.Schema({
 }, {"strict" : "throw"})
 
 // create model for user/author schema 
-const userAuthor = mongoose.model('userauthor', userAuthorSchema);
+const userAuthorMod = mongoose.model('userauthor', userAuthorSchema);
 
 // export 
-module.exports = userAuthor;
+module.exports = userAuthorMod;
