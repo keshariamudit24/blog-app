@@ -17,12 +17,12 @@ authorApp.post("/article", expressAsyncHandler(async (req, res) => {
 
 // read article
 authorApp.get("/articles", expressAsyncHandler(async (req, res) => {
-    const listOfArticles = await Article.find();
+    const listOfArticles = await Article.find({ isArticleActive: true });
     res.status(200).send({ msg: "articles", payload: listOfArticles });
 }))
 
 // modify an article by article id
-authorApp.put("/articles/:articleId", expressAsyncHandler(async (req, res) => {
+authorApp.put("/article/:articleId", expressAsyncHandler(async (req, res) => {
     
     // get modified article 
     const modifiedArticle = req.body;

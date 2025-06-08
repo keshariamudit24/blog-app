@@ -60,7 +60,7 @@ GET http://localhost:4000/author-api/articles
 
 
 ### edit article by id
-PUT http://localhost:3000/author-api/articles/1749361474
+PUT http://localhost:3000/author-api/article/1749362565
 Content-Type: application/json
 
 {
@@ -82,17 +82,17 @@ Content-Type: application/json
 }
 
 ### post comment by article id
-PUT http://localhost:4000/user-api/comment/articleId
+PUT http://localhost:3000/user-api/comment/1749364244
 Content-Type: application/json
 
 {
-      "nameOfUser": "",
-      "comment": ""
+      "nameOfUser": "harkirat",
+      "comment": "this is a good project"
      
 }
 
 ### delete atricle by article id
-PUT http://localhost:3000/author-api/articles/1749361474
+PUT http://localhost:3000/author-api/articles/1749362565
 Content-Type: application/json
 
 {
