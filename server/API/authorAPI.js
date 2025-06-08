@@ -26,7 +26,7 @@ authorApp.put("/article/:articleId", expressAsyncHandler(async (req, res) => {
     
     // get modified article 
     const modifiedArticle = req.body;
-    
+
     // get the articleId from the query
     const inputId = req.params.articleId;
 
