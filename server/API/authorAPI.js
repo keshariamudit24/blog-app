@@ -22,7 +22,7 @@ authorApp.get("/articles", expressAsyncHandler(async (req, res) => {
 }))
 
 // modify an article by article id
-authorApp.put("/article/:articleId", expressAsyncHandler(async (req, res) => {
+authorApp.put("/articles/:articleId", expressAsyncHandler(async (req, res) => {
     
     // get modified article 
     const modifiedArticle = req.body;
@@ -31,7 +31,7 @@ authorApp.put("/article/:articleId", expressAsyncHandler(async (req, res) => {
     const inputId = req.params.articleId;
 
     // find the article to modify
-    const reqArticle = await Article.findOne({ _id: inputId });
+    const reqArticle = await Article.findOne({ articleId: inputId });
 
     // update: 
     Object.assign(reqArticle, modifiedArticle);
@@ -40,6 +40,29 @@ authorApp.put("/article/:articleId", expressAsyncHandler(async (req, res) => {
     // respone 
     res.status(200).send({
         msg: "article updated",
+        payload: reqArticle
+    })
+}))
+
+// delete (soft - delete / masking)
+authorApp.put("/articles/:articleId", expressAsyncHandler(async (req, res) => {
+    
+    // get modified article 
+    const modifiedArticle = req.body;
+
+    // get the articleId from the query
+    const inputId = req.params.articleId;
+
+    // find the article to modify
+    const reqArticle = await Article.findOne({ articleId: inputId });
+
+    // update: 
+    Object.assign(reqArticle, modifiedArticle);
+    await reqArticle.save();
+
+    // respone 
+    res.status(200).send({
+        msg: "article deleted",
         payload: reqArticle
     })
 }))

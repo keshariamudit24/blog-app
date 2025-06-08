@@ -60,7 +60,7 @@ GET http://localhost:4000/author-api/articles
 
 
 ### edit article by id
-PUT http://localhost:3000/author-api/article/6845229b98d036039d998630
+PUT http://localhost:3000/author-api/articles/1749361474
 Content-Type: application/json
 
 {
@@ -92,14 +92,15 @@ Content-Type: application/json
 }
 
 ### delete atricle by article id
-PUT http://localhost:4000/author-api/article/articleId
+PUT http://localhost:3000/author-api/articles/1749361474
 Content-Type: application/json
 
 {
+    "_id": "6845229b98d036039d998630",
     "authorData":{
-        "nameOfAuthor":"",
-        "email":"",
-        "profileImageUrl":""
+        "nameOfAuthor":"harkirat",
+        "email":"abc@gmail.com",
+        "imgUrl":""
     },
     "articleId":"{{$timestamp}}",
     "title":"Fundamentals of JavaScript",
