@@ -14,6 +14,7 @@ import Signup from './components/common/Signup.jsx';
 import UserProfile from './components/user/userProfile.jsx';
 import AuthorProfile from './components/author/AuthorProfile.jsx';
 import PostArticle from './components/author/postArticle.jsx';
+import UserAuthorContext from './contexts/UserAuthorContext';
 
 // array of objects 
 const browserRouterObj = createBrowserRouter([
@@ -79,6 +80,8 @@ const browserRouterObj = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={ browserRouterObj } />
+    <UserAuthorContext>
+      <RouterProvider router={browserRouterObj} />
+    </UserAuthorContext>
   </StrictMode>,
 )
